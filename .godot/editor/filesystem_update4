@@ -1,3 +1,2 @@
-res://scenes/slime_player.tscn
-res://scripts/slime_player.gd
 res://scenes/game.tscn
+res://scenes/slime_player.tscn
