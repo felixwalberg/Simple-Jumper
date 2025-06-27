@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjx74yt370etd"]
+
+[ext_resource type="Texture2D" uid="uid://b2sskco3rddvp" path="res://assets/slime_sprite_sheet.png" id="1_dsjj8"]
+[ext_resource type="Script" uid="uid://caxqdr4w8onny" path="res://scripts/slime_player.gd" id="1_jxm85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc5u5"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii1xy"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av8cn"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqbj8"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ydb"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrlfe"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h7bg"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivk7p"]
+atlas = ExtResource("1_dsjj8")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3w0ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc5u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii1xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av8cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqbj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrlfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h7bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivk7p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxm85"]
+radius = 6.08276
+
+[node name="Slime Player" type="CharacterBody2D"]
+script = ExtResource("1_jxm85")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_3w0ib")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.26432
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -8)
+shape = SubResource("CircleShape2D_jxm85")

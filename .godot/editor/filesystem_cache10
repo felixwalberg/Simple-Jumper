@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1751048187
+icon.svg::CompressedTexture2D::8576564506419905108::1751047819::1751048187::1::::<><><>0<>0<>e85b036f5e23478e6b524c46121d437a<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+slime_player.tscn::PackedScene::5454017671491267105::1751048286::0::1::::<><><>0<>0<><>::uid://b2sskco3rddvp::::res://assets/slime_sprite_sheet.png
+::res://assets/::1751048187
+slime_sprite_sheet.png::CompressedTexture2D::4319789153270890509::1751047881::1751048187::1::::<><><>0<>0<>77b91b5baddeea6bc6b1c9f2a0572095<>res://.godot/imported/slime_sprite_sheet.png-076aa68b4524bbc0971561fbcda1cc9d.ctex::
+world_tiles.png::CompressedTexture2D::5930910911269506250::1751047878::1751048187::1::::<><><>0<>0<>5b9788af53db5f10e0c30069688472fc<>res://.godot/imported/world_tiles.png-d847c5ec6ed1f9ff1c52e91056e90e7b.ctex::
+::res://scenes/::1751047894
+game.tscn::PackedScene::3602520825362019368::1751047894::0::1::::<><><>0<>0<><>::
+::res://scripts/::1751047853

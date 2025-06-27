@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://brlc8ymfnsca7"]
+[gd_scene load_steps=5 format=3 uid="uid://brlc8ymfnsca7"]
+
+[ext_resource type="Texture2D" uid="uid://cqq8ibbjpestm" path="res://assets/world_tiles.png" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cjx74yt370etd" path="res://scenes/slime_player.tscn" id="2_lnu2h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
+texture = ExtResource("1_yqjtg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_iywne"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
 [node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_iywne")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 131072, 0, 65533, 0, 0, 4, 0, 0, 5, 131072, 0, 65543, 0, 0, 65544, 65536, 0, 65545, 131072, 0, 196618, 65536, 2, 196617, 65536, 2, 196616, 65536, 2, 196615, 65536, 2, 196614, 65536, 2, 196613, 65536, 2, 196612, 65536, 2, 196611, 65536, 2, 196610, 65536, 2, 196609, 65536, 2, 196608, 65536, 2, 262143, 65536, 2, 262142, 65536, 2, 262141, 65536, 2, 262140, 65536, 2, 196604, 65536, 2, 131068, 65536, 2, 65532, 65536, 2, -4, 65536, 2, -65540, 65536, 2, -131076, 65536, 2, 196619, 65536, 2, 196620, 65536, 2, 196621, 65536, 2, 196622, 65536, 2, 196623, 65536, 2, 131087, 65536, 2, 65551, 65536, 2, 15, 65536, 2, -65521, 65536, 2, -131057, 65536, 2, -196593, 65536, 2, -262129, 65536, 2, 131083, 0, 0, 131084, 65536, 0, 131085, 65536, 0, 131086, 131072, 0)
+
+[node name="Slime Player" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(16, -6)
+
+[node name="Camera2D" type="Camera2D" parent="Slime Player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
