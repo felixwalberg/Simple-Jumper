@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://brlc8ymfnsca7"]
+[gd_scene load_steps=13 format=3 uid="uid://brlc8ymfnsca7"]
 
 [ext_resource type="Texture2D" uid="uid://cqq8ibbjpestm" path="res://assets/world_tiles.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cjx74yt370etd" path="res://scenes/slime_player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cbl8fure3mi0h" path="res://scenes/speed_potion.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cd0fre5qaw53n" path="res://scenes/platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://crbtmer77mft1" path="res://scenes/killzone.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bx2cuh5t2iflj" path="res://scenes/purple_spike_enemy.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_yqjtg")
@@ -26,6 +27,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+distance = -29.0
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 resource_name = "move"
@@ -65,18 +69,12 @@ _data = {
 &"move": SubResource("Animation_lnu2h")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
-distance = -29.0
-
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_iywne")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 131072, 0, 65533, 65536, 0, 4, 0, 0, 5, 131072, 0, 65543, 0, 0, 65544, 65536, 0, 65545, 131072, 0, 131083, 0, 0, 131084, 65536, 0, 131085, 65536, 0, 131086, 131072, 0, 11, 0, 0, 12, 65536, 0, 13, 65536, 0, 14, 131072, 0, -65520, 0, 0, -65519, 131072, 0, 65555, 0, 0, 65556, 65536, 0, 65557, 65536, 0, 65558, 65536, 0, 65559, 131072, 0, -65511, 0, 0, -65510, 131072, 0, 22, 0, 0, 23, 131072, 0, 65521, 65536, 0, 65520, 65536, 0, 65519, 65536, 0, 65518, 65536, 0, 65517, 65536, 0, 65516, 65536, 0, 65515, 65536, 0, 65514, 0, 0, 65532, 0, 0, 65522, 131072, 0)
-
-[node name="Speed Potion" parent="." instance=ExtResource("3_lbhrr")]
-position = Vector2(-631, -16)
+layer_0/tile_data = PackedInt32Array(65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 131072, 0, 65533, 65536, 0, 4, 0, 0, 5, 131072, 0, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 131083, 0, 0, 131084, 65536, 0, 131085, 65536, 0, 131086, 131072, 0, 11, 0, 0, 12, 65536, 0, 13, 65536, 0, 14, 131072, 0, -65520, 0, 0, -65519, 131072, 0, 65555, 0, 0, 65556, 65536, 0, 65557, 65536, 0, 65558, 65536, 0, 65559, 131072, 0, -65511, 0, 0, -65510, 131072, 0, 22, 0, 0, 23, 131072, 0, 65521, 65536, 0, 65520, 65536, 0, 65519, 65536, 0, 65518, 65536, 0, 65517, 65536, 0, 65516, 65536, 0, 65515, 65536, 0, 65514, 0, 0, 65532, 0, 0, 65522, 131072, 0, 65542, 0, 0, 65546, 131072, 0)
 
 [node name="Slime Player" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(16, -6)
@@ -96,17 +94,27 @@ offset_bottom = -20.0
 text = "press space to jump
 & arrow keys to move"
 
-[node name="Platform" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(-267, -86)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
-libraries = {
-&"": SubResource("AnimationLibrary_iywne")
-}
-autoplay = "move"
-
 [node name="Killzone" parent="." instance=ExtResource("5_iywne")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(-1, 124)
 shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="Potions" type="Node" parent="."]
+
+[node name="Speed Potion" parent="Potions" instance=ExtResource("3_lbhrr")]
+position = Vector2(-631, -16)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("3_lnu2h")]
+position = Vector2(-267, -86)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_iywne")
+}
+autoplay = "move"
+
+[node name="Node2D" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(209, 35)

@@ -7,3 +7,5 @@ res://scripts/speed_potion.gd
 res://scripts/killzone.gd
 res://scenes/killzone.tscn
 res://scripts/slime_player.gd
+res://scenes/purple_spike_enemy.tscn
+res://scripts/purple_spike_enemy.gd
