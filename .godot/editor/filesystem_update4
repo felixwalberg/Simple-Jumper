@@ -1,3 +1,9 @@
 res://scenes/game.tscn
 res://scenes/slime_player.tscn
 res://scripts/cinematic.gd
+res://scenes/platform.tscn
+res://scenes/speed_potion.tscn
+res://scripts/speed_potion.gd
+res://scripts/killzone.gd
+res://scenes/killzone.tscn
+res://scripts/slime_player.gd

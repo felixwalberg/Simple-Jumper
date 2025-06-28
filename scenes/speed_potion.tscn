@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbl8fure3mi0h"]
+
+[ext_resource type="Texture2D" uid="uid://dvr1qftmvwy84" path="res://assets/speed_potion_animation.png" id="1_llteo"]
+[ext_resource type="Script" uid="uid://bat7qw7m23c5d" path="res://scripts/speed_potion.gd" id="1_qulrn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qulrn"]
+atlas = ExtResource("1_llteo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui344"]
+atlas = ExtResource("1_llteo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbk3r"]
+atlas = ExtResource("1_llteo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvgxk"]
+atlas = ExtResource("1_llteo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqxx"]
+atlas = ExtResource("1_llteo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqh6h"]
+atlas = ExtResource("1_llteo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3q6x"]
+atlas = ExtResource("1_llteo")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70m0b"]
+atlas = ExtResource("1_llteo")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkewk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qulrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui344")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbk3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvgxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqh6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3q6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70m0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_81vod"]
+radius = 7.0
+height = 22.0
+
+[node name="Speed Potion" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_qulrn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qkewk")
+autoplay = "default"
+frame_progress = 0.94191
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_81vod")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

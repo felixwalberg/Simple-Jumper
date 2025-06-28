@@ -1,8 +1,17 @@
 extends CharacterBody2D
 
+@onready var speed_potion_duration: Timer = $"Speed Potion Duration"
 
-const SPEED = 130.0
+var SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+
+func _speed_potion():
+	speed_potion_duration.start()
+	SPEED = 250
+	
+func _on_timer_timeout() -> void:
+	SPEED = 130
+	print("No more speed")
 
 
 func _physics_process(delta: float) -> void:

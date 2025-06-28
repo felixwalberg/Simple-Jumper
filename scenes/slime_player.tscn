@@ -71,6 +71,8 @@ animations = [{
 radius = 6.08276
 
 [node name="Slime Player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
 script = ExtResource("1_jxm85")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -83,3 +85,9 @@ frame_progress = 0.26432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -8)
 shape = SubResource("CircleShape2D_jxm85")
+
+[node name="Speed Potion Duration" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Speed Potion Duration" to="." method="_on_timer_timeout"]
